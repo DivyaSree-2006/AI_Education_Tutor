@@ -1,7 +1,10 @@
 import streamlit as st
 import requests
 
-my_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+try:
+    my_API_KEY = st.secrets["OPENROUTER_API_KEY"]
+except:
+    my_API_KEY = "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"
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
@@ -11,8 +14,7 @@ def get_tutor_response(prompt):
 
     headers = {
         "Authorization": f"Bearer {my_API_KEY}",
-        "Content-Type": "application/json",
-        "X-Title": "Education Tutor"
+        "Content-Type": "application/json"
     }
 
     data = {
@@ -30,16 +32,19 @@ def get_tutor_response(prompt):
 
 st.header("📚The Education Tutor for Remote India")
 st.write("Helping students learn anytime, anywhere 💡")
-if st.button("🧹 Clear Chat"):
+if st.button("🧹Clear Chat"):
     st.session_state.chat_history = []
 
-subject = st.selectbox("Select Subject:",["Mathematics", "Science","Social", "English", "Computer Basics"])
-language = st.selectbox("Select Language:",["English", "Telugu", "Hindi","Tamil","Malayalam","Kannada","Bengali","Marathi","Odia","Gujarati","Punjabi","Nepali","Assamese","Manipuri (Meitei)","Konkani"])
+subject = st.selectbox("Select Subject:", ["Mathematics", "Science", "Social", "English", "Computer Basics"])
+language = st.selectbox("Select Language:", ["English", "Telugu", "Hindi", "Tamil", "Malayalam", "Kannada", "Bengali", "Marathi", "Odia", "Gujarati", "Punjabi", "Nepali", "Assamese", "Manipuri (Meitei)", "Konkani"])
 
 question = st.text_input("Ask your question:")
+
 if question:
     st.session_state.chat_history.append(f"User: {question}")
+
     context = "\n".join(st.session_state.chat_history)
+
     prompt = f"""
     You are a friendly tutor for students in rural India.
     IMPORTANT:
@@ -49,6 +54,7 @@ if question:
     Subject: {subject}
     Question: {question}
     """
+
     answer = get_tutor_response(prompt)
 
     st.session_state.chat_history.append(f"AI: {answer}")
