@@ -12,7 +12,6 @@ def get_tutor_response(prompt):
     headers = {
         "Authorization": f"Bearer {my_API_KEY}",
         "Content-Type": "application/json",
-        "HTTP-Referer": "https://ai-eduaction-tutor-lpsxwrzgzp2uwefpnzyj5n.streamlit.app/",
         "X-Title": "Education Tutor"
     }
 
