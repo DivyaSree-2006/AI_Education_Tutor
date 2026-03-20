@@ -12,8 +12,8 @@ def get_tutor_response(prompt):
     headers = {
         "Authorization": f"Bearer {my_API_KEY}",
         "Content-Type": "application/json",
-        "HTTP-Referer": "http://localhost",
-        "X-Title": "Education Tutor App"
+        "HTTP-Referer": "https://ai-eduaction-tutor-lpsxwrzgzp2uwefpnzyj5n.streamlit.app/",
+        "X-Title": "Education Tutor"
     }
 
     data = {
@@ -54,5 +54,5 @@ if question:
 
     st.session_state.chat_history.append(f"AI: {answer}")
 
-    st.write("### 🤖 Tutor Response:")
+    st.write("🤖 Tutor Response:")
     st.write(answer)
