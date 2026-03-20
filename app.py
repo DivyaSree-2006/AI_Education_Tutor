@@ -1,10 +1,7 @@
 import streamlit as st
 import requests
 
-try:
-    my_API_KEY = st.secrets["OPENROUTER_API_KEY"]
-except:
-    my_API_KEY = "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"
+my_API_KEY = st.secrets["OPENROUTER_API_KEY"]
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
