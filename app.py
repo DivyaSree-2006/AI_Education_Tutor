@@ -1,16 +1,16 @@
 import streamlit as st
 import requests
 
-API_KEY = "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"
+my_API_KEY = st.secrets["OPENROUTER_API_KEY"]
 
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-def get_ai_response(prompt):
+def get_tutor_response(prompt):
     url = "https://openrouter.ai/api/v1/chat/completions"
 
     headers = {
-        "Authorization": f"Bearer {API_KEY}",
+        "Authorization": f"Bearer {my_API_KEY}",
         "Content-Type": "application/json",
         "HTTP-Referer": "http://localhost",
         "X-Title": "Education Tutor App"
@@ -50,7 +50,7 @@ if question:
     Subject: {subject}
     Question: {question}
     """
-    answer = get_ai_response(prompt)
+    answer = get_tutor_response(prompt)
 
     st.session_state.chat_history.append(f"AI: {answer}")
 
