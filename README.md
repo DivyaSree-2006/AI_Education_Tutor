@@ -5,7 +5,7 @@ The idea is to provide explanations in different Indian languages so that studen
 
 ---
 
-##Live App: https://ai-eduaction-tutor-lpsxwrzgzp2uwefpnzyj5n.streamlit.app/
+## 💻Live App: https://ai-eduaction-tutor-lpsxwrzgzp2uwefpnzyj5n.streamlit.app/
 
 ---
 
