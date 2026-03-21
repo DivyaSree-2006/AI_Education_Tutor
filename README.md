@@ -5,6 +5,10 @@ The idea is to provide explanations in different Indian languages so that studen
 
 ---
 
+##Live App: https://ai-eduaction-tutor-lpsxwrzgzp2uwefpnzyj5n.streamlit.app/
+
+---
+
 ## 🚀 What this project does
 
 - Allows students to ask questions from different subjects  
